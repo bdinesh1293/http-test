@@ -136,6 +136,7 @@ props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=f
                     <cc:expression>props['contract.header.amount'] = 1000.00</cc:expression>
                     <cc:expression>props['sum.of.line.item.amounts'] = 999.99</cc:expression>
                     <cc:expression>props['difference.in.amounts'] = abs(props['contract.header.amount'] - props['sum.of.line.item.amounts'])</cc:expression>
+                    <cc:expression>props['test'] = true</cc:expression>
                 </cc:eval>
             </cc:steps>
         </cc:async-mediation>
