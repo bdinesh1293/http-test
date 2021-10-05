@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+     xmlns="http://www.springframework.org/schema/beans"
+     xmlns:beans="http://www.springframework.org/schema/beans"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:cc="http://www.capeclear.com/assembly/10"
+     xmlns:cloud="urn:com.workday/esb/cloud/10.0"
+     xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+     xmlns:pi="urn:com.workday/picof"
+     xmlns:wd="urn:com.workday/bsvc"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ 
+	<cc:assembly id="WorkdayAssembly" version="2021.10">
+        <cc:async-mediation id="Async_1_SiteFailure" routes-to="HttpOut" handle-downstream-errors="true">
+            <cc:steps>
+                <cc:eval id="Eval">
+                    <cc:expression>props['validation.successful'] = false</cc:expression>
+                    <cc:expression>props['site.id'] = ''</cc:expression>
+                    <cc:expression>props['billtosite.id'] = '555448'</cc:expression>
+                    <cc:expression>props['billtocontact.id'] = '889955'</cc:expression>
+                    <cc:expression>props['url'] = ''</cc:expression>
+                    <cc:expression>props['status.url'] = 'status.url'</cc:expression>
+                    <cc:expression>props['IntgStaging.id'] = 'INTID'</cc:expression>
+                </cc:eval>
+                <cc:eval id="Eval0">
+                    <cc:expression>if (props['validation.successful'] == false and props['site.id'] == ''){&#xD;
+props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage=Customer%20ID%20is%20not%20populated%20in%20the%20order'&#xD;
+}else if(props['validation.successful'] == false and props['billtosite.id'] == ''){&#xD;
+props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage=Bill%20to%20Customer%20is%20not%20populated%20in%20the%20order'&#xD;
+}else if(props['validation.successful'] == false and props['billtocontact.id'] == ''){&#xD;
+props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage=&#xD;
+Bill%20to%20Contact%20is%20not%20populated%20in%20the%20order'&#xD;
+}else if(props['validation.successful'] == false){&#xD;
+props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage=Creating%20missing%20Customer%2FInvoice%20Contact%2C%20please%20check%20back%20for%20your%20order%20in%2015%20minutes'&#xD;
+}else{&#xD;
+props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage='+props['encoded.error']&#xD;
+}</cc:expression>
+                </cc:eval>
+                <cc:eval id="Eval1">
+                    <cc:expression>props['validation.successful'] = false</cc:expression>
+                    <cc:expression>props['site.id'] = '555448'</cc:expression>
+                    <cc:expression>props['billtosite.id'] = ''</cc:expression>
+                    <cc:expression>props['billtocontact.id'] = '889955'</cc:expression>
+                    <cc:expression>props['url'] = ''</cc:expression>
+                    <cc:expression>props['status.url'] = 'status.url'</cc:expression>
+                    <cc:expression>props['IntgStaging.id'] = 'INTID'</cc:expression>
+                </cc:eval>
+                <cc:eval id="Eval00">
+                    <cc:expression>if (props['validation.successful'] == false and props['site.id'] == ''){&#xD;
+props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage=Customer%20ID%20is%20not%20populated%20in%20the%20order'&#xD;
+}else if(props['validation.successful'] == false and props['billtosite.id'] == ''){&#xD;
+props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage=Bill%20to%20Customer%20is%20not%20populated%20in%20the%20order'&#xD;
+}else if(props['validation.successful'] == false and props['billtocontact.id'] == ''){&#xD;
+props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage=&#xD;
+Bill%20to%20Contact%20is%20not%20populated%20in%20the%20order'&#xD;
+}else if(props['validation.successful'] == false){&#xD;
+props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage=Creating%20missing%20Customer%2FInvoice%20Contact%2C%20please%20check%20back%20for%20your%20order%20in%2015%20minutes'&#xD;
+}else{&#xD;
+props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage='+props['encoded.error']&#xD;
+}</cc:expression>
+                </cc:eval>
+                <cc:eval id="Eval10">
+                    <cc:expression>props['validation.successful'] = false</cc:expression>
+                    <cc:expression>props['site.id'] = '889955'</cc:expression>
+                    <cc:expression>props['billtosite.id'] = '555448'</cc:expression>
+                    <cc:expression>props['billtocontact.id'] = ''</cc:expression>
+                    <cc:expression>props['url'] = ''</cc:expression>
+                    <cc:expression>props['status.url'] = 'status.url'</cc:expression>
+                    <cc:expression>props['IntgStaging.id'] = 'INTID'</cc:expression>
+                </cc:eval>
+                <cc:eval id="Eval000">
+                    <cc:expression>if (props['validation.successful'] == false and props['site.id'] == ''){&#xD;
+props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage=Customer%20ID%20is%20not%20populated%20in%20the%20order'&#xD;
+}else if(props['validation.successful'] == false and props['billtosite.id'] == ''){&#xD;
+props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage=Bill%20to%20Customer%20is%20not%20populated%20in%20the%20order'&#xD;
+}else if(props['validation.successful'] == false and props['billtocontact.id'] == ''){&#xD;
+props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage=&#xD;
+Bill%20to%20Contact%20is%20not%20populated%20in%20the%20order'&#xD;
+}else if(props['validation.successful'] == false){&#xD;
+props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage=Creating%20missing%20Customer%2FInvoice%20Contact%2C%20please%20check%20back%20for%20your%20order%20in%2015%20minutes'&#xD;
+}else{&#xD;
+props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage='+props['encoded.error']&#xD;
+}</cc:expression>
+                </cc:eval>
+            </cc:steps>
+        </cc:async-mediation>
+        <cc:http-out id="HttpOut" routes-response-to="Async_2_SiteFailure" endpoint="@{props['prop.token.build.url.site']}" http-method="POST"/>
+        <cc:async-mediation id="Async_2_SiteFailure" routes-to="HttpOut_2_SiteFailure" handle-downstream-errors="true">
+            <cc:steps>
+                <cc:json-to-xml id="JsonToXml" root-element-name="AuthorizationToken"/>
+                <cc:xslt-plus id="ConvertResponse" url="NewStylesheet.xsl"/>
+                <cc:eval id="ResponseDetails">
+                    <cc:expression>props['access-token'] = 'Bearer '+parts[0].xpath('/token')</cc:expression>
+                    <cc:expression>props['url'] = ''</cc:expression>
+                    <cc:expression>props['encoded.error'] = java.net.URLEncoder.encode(props['error.message'],'UTF-8')</cc:expression>
+                    <cc:expression>props['url'] = 'https://boi-tusa01.app.blackbaud.net/siwdb/v1/sites/status?siteId='+props['customer.id']+'&amp;isSuccess=false&amp;errorMessage='+props['encoded.error']</cc:expression>
+                </cc:eval>
+                <cc:write id="Write">
+                    <cc:message>
+                        <cc:text></cc:text>
+                    </cc:message>
+                </cc:write>
+                <cc:set-headers id="SetHeaders">
+                    <cc:remove-headers/>
+                    <cc:add-headers>
+                        <cc:add-header name="Authorization" value="@{props['access-token']}"/>
+                    </cc:add-headers>
+                </cc:set-headers>
+            </cc:steps>
+        <cc:send-error id="SendError0" routes-to="AsyncMediation0"/>
+        </cc:async-mediation>
+        <cc:http-out id="HttpOut_2_SiteFailure" store-message="request" routes-response-to="AsyncMediation" endpoint="@{props['url']}" http-method="POST">
+        </cc:http-out>
+        <cc:workday-in id="StartHere" routes-to="AsyncMediation1">
+            <cc:integration-system name="HTTPOUT_TEst"/>
+        </cc:workday-in>
+        <cc:async-mediation id="AsyncMediation">
+            <cc:steps>
+                <cc:log id="Log">
+                    <cc:log-message>
+                        <cc:message-content/>
+                    </cc:log-message>
+                </cc:log>
+            </cc:steps>
+        </cc:async-mediation>
+        <cc:async-mediation id="AsyncMediation0">
+            <cc:steps>
+                <cc:eval id="Eval">
+                    <cc:expression>context.errorMessage = ''</cc:expression>
+                </cc:eval>
+            </cc:steps>
+        </cc:async-mediation>
+        <cc:async-mediation id="AsyncMediation1">
+            <cc:steps>
+                <cc:eval id="Eval">
+                    <cc:expression>props['contract.header.amount'] = 1000.00</cc:expression>
+                    <cc:expression>props['sum.of.line.item.amounts'] = 999.99</cc:expression>
+                    <cc:expression>props['difference.in.amounts'] = abs(props['contract.header.amount'] - props['sum.of.line.item.amounts'])</cc:expression>
+                </cc:eval>
+            </cc:steps>
+        </cc:async-mediation>
+	</cc:assembly>
+
+</beans>
