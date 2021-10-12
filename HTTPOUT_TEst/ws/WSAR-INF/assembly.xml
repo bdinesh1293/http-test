@@ -59,7 +59,15 @@ props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=f
                     <cc:expression>props['status.url'] = 'status.url'</cc:expression>
                     <cc:expression>props['IntgStaging.id'] = 'INTID'</cc:expression>
                 </cc:eval>
-                <cc:etv id="Etv"/>
+
+                <cc:log id="Log">
+                    <cc:log-message>
+                        <cc:message-content/>
+                    </cc:log-message>
+                </cc:log>
+
+               
+
             </cc:steps>
             <cc:log-error id="LogError">
                 <cc:log-message>
