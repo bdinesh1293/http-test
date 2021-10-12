@@ -36,15 +36,6 @@ props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=f
 props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage='+props['encoded.error']&#xD;
 }</cc:expression>
                 </cc:eval>
-                <cc:eval id="Eval1">
-                    <cc:expression>props['validation.successful'] = false</cc:expression>
-                    <cc:expression>props['site.id'] = '555448'</cc:expression>
-                    <cc:expression>props['billtosite.id'] = ''</cc:expression>
-                    <cc:expression>props['billtocontact.id'] = '889955'</cc:expression>
-                    <cc:expression>props['url'] = ''</cc:expression>
-                    <cc:expression>props['status.url'] = 'status.url'</cc:expression>
-                    <cc:expression>props['IntgStaging.id'] = 'INTID'</cc:expression>
-                </cc:eval>
                 <cc:eval id="Eval00">
                     <cc:expression>if (props['validation.successful'] == false and props['site.id'] == ''){&#xD;
 props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage=Customer%20ID%20is%20not%20populated%20in%20the%20order'&#xD;
@@ -67,20 +58,6 @@ props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=f
                     <cc:expression>props['url'] = ''</cc:expression>
                     <cc:expression>props['status.url'] = 'status.url'</cc:expression>
                     <cc:expression>props['IntgStaging.id'] = 'INTID'</cc:expression>
-                </cc:eval>
-                <cc:eval id="Eval000">
-                    <cc:expression>if (props['validation.successful'] == false and props['site.id'] == ''){&#xD;
-props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage=Customer%20ID%20is%20not%20populated%20in%20the%20order'&#xD;
-}else if(props['validation.successful'] == false and props['billtosite.id'] == ''){&#xD;
-props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage=Bill%20to%20Customer%20is%20not%20populated%20in%20the%20order'&#xD;
-}else if(props['validation.successful'] == false and props['billtocontact.id'] == ''){&#xD;
-props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage=&#xD;
-Bill%20to%20Contact%20is%20not%20populated%20in%20the%20order'&#xD;
-}else if(props['validation.successful'] == false){&#xD;
-props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage=Creating%20missing%20Customer%2FInvoice%20Contact%2C%20please%20check%20back%20for%20your%20order%20in%2015%20minutes'&#xD;
-}else{&#xD;
-props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=false&amp;errorMessage='+props['encoded.error']&#xD;
-}</cc:expression>
                 </cc:eval>
             </cc:steps>
         </cc:async-mediation>
