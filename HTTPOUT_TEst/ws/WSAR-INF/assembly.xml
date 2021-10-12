@@ -59,7 +59,13 @@ props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=f
                     <cc:expression>props['status.url'] = 'status.url'</cc:expression>
                     <cc:expression>props['IntgStaging.id'] = 'INTID'</cc:expression>
                 </cc:eval>
+                <cc:etv id="Etv"/>
             </cc:steps>
+            <cc:log-error id="LogError">
+                <cc:log-message>
+                    <cc:message-content/>
+                </cc:log-message>
+            </cc:log-error>
         </cc:async-mediation>
         <cc:http-out id="HttpOut" routes-response-to="Async_2_SiteFailure" endpoint="@{props['prop.token.build.url.site']}" http-method="POST"/>
         <cc:async-mediation id="Async_2_SiteFailure" routes-to="HttpOut_2_SiteFailure" handle-downstream-errors="true">
@@ -100,7 +106,7 @@ props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=f
                 </cc:log>
             </cc:steps>
         </cc:async-mediation>
-        <cc:async-mediation id="AsyncMediation0">
+        <cc:async-mediation id="AsyncMediation0" routes-to="PutIntegrationMessage">
             <cc:steps>
                 <cc:eval id="Eval">
                     <cc:expression>context.errorMessage = ''</cc:expression>
@@ -117,6 +123,7 @@ props['url'] = props['status.url']+props['IntgStaging.id']+'/history?isSuccess=f
                 </cc:eval>
             </cc:steps>
         </cc:async-mediation>
+        <cc:local-out id="PutIntegrationMessage" endpoint="vm://wcc/PutIntegrationMessage"><cc:set name="is.message.severity" value="'INFO'"/><cc:set name="is.message.summary"/></cc:local-out>
 	</cc:assembly>
 
 </beans>

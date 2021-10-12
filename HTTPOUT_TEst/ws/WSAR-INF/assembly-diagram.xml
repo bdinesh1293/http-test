@@ -4,7 +4,7 @@
   <visualProperties x="290" y="462">
     <element href="assembly.xml#Async_1_SiteFailure"/>
   </visualProperties>
-  <visualProperties x="552" y="413">
+  <visualProperties x="677" y="389">
     <element href="assembly.xml#HttpOut"/>
   </visualProperties>
   <visualProperties x="806" y="449">
@@ -27,6 +27,9 @@
   </visualProperties>
   <visualProperties x="282" y="313">
     <element href="assembly.xml#AsyncMediation1"/>
+  </visualProperties>
+  <visualProperties x="816" y="695">
+    <element href="assembly.xml#PutIntegrationMessage"/>
   </visualProperties>
   <connections type="routesTo" sourceAnchorX="1.0" sourceAnchorY="0.2755102040816326" targetAnchorX="0.21008403361344538" targetAnchorY="0.10810810810810811">
     <source href="assembly.xml#Async_1_SiteFailure"/>
@@ -51,5 +54,9 @@
   <connections type="routesTo" sourceAnchorX="0.8880597014925373" sourceAnchorY="1.0" targetAnchorX="0.10674157303370786" targetAnchorY="0.07608695652173914">
     <source href="assembly.xml#StartHere"/>
     <target href="assembly.xml#AsyncMediation1"/>
+  </connections>
+  <connections type="routesTo" sourceAnchorX="0.0" sourceAnchorY="0.21428571428571427" targetAnchorX="0.7925311203319502" targetAnchorY="0.2972972972972973">
+    <source href="assembly.xml#AsyncMediation0"/>
+    <target href="assembly.xml#PutIntegrationMessage"/>
   </connections>
 </wdnm:Diagram>
